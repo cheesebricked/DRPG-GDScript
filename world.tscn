@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgfeti3oiiu73"]
+
+[ext_resource type="PackedScene" uid="uid://cgiskhntjfd0t" path="res://map.tscn" id="1_5hcl4"]
+[ext_resource type="PackedScene" uid="uid://234ds8a8lh3s" path="res://player.tscn" id="2_rbsks"]
+[ext_resource type="PackedScene" uid="uid://cknxp0862rhm1" path="res://menu_battle.tscn" id="3_2dkpd"]
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7, 0)
+
+[node name="map1" parent="." instance=ExtResource("1_5hcl4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+
+[node name="player" parent="." instance=ExtResource("2_rbsks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 7, 3)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="menu_battle" parent="CanvasLayer" instance=ExtResource("3_2dkpd")]

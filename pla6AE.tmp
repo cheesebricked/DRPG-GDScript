@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://234ds8a8lh3s"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_45v2n"]
+
+[node name="player" type="Node3D"]
+script = ExtResource("1_45v2n")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+fov = 90.0
+
+[node name="raycastFront" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -2)
+collide_with_areas = true
+
+[node name="raycastBack" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, 2)
+collide_with_areas = true
+
+[node name="raycastLeft" type="RayCast3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, 0, 2)
+collide_with_areas = true
+
+[node name="raycastRight" type="RayCast3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, 0, 2)
+collide_with_areas = true

@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://234ds8a8lh3s"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_45v2n"]
+[ext_resource type="AudioStream" uid="uid://ci6gbg0vx4bg0" path="res://sounds/sfx/footstep1.wav" id="2_641v1"]
+[ext_resource type="AudioStream" uid="uid://d0ev57uhvpu0e" path="res://sounds/sfx/footstep2.wav" id="3_wn4cl"]
+[ext_resource type="AudioStream" uid="uid://42ip3as7ncmu" path="res://sounds/sfx/footstep3.wav" id="4_javml"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oxnu7"]
+
+[node name="player" type="Node3D"]
+script = ExtResource("1_45v2n")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+fov = 90.0
+
+[node name="raycastFront" type="RayCast3D" parent="." groups=["PlayerCursor"]]
+target_position = Vector3(0, 0, -2)
+collide_with_areas = true
+
+[node name="raycastBack" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, 2)
+collide_with_areas = true
+
+[node name="raycastLeft" type="RayCast3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, 0, 2)
+collide_with_areas = true
+
+[node name="raycastRight" type="RayCast3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, 0, 2)
+collide_with_areas = true
+
+[node name="walk_1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_641v1")
+
+[node name="walk_2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_wn4cl")
+
+[node name="walk_3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_javml")
+
+[node name="cursor" type="Area3D" parent="." groups=["PlayerCursor"]]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cursor"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -1)
+shape = SubResource("BoxShape3D_oxnu7")

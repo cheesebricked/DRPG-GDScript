@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://f0pvk0mgqmwr"]
+
+[ext_resource type="Texture2D" uid="uid://g1eru4xhrc74" path="res://images/characters/enemies/slime.png" id="1_55yhj"]
+[ext_resource type="Script" path="res://enemy_slime.gd" id="1_hnall"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_njiak"]
+font_size = 150
+
+[node name="slime" type="Node2D"]
+position = Vector2(375, 439)
+script = ExtResource("1_hnall")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_55yhj")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -184.0
+offset_top = -391.0
+offset_right = 176.0
+offset_bottom = -183.0
+text = "25hp
+"
+label_settings = SubResource("LabelSettings_njiak")
+horizontal_alignment = 2
+metadata/_edit_group_ = true
